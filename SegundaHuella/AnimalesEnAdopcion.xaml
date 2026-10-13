@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SegundaHuella.AnimalesEnAdopcion"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="AnimalesEnAdopcion">
+    <VerticalStackLayout>
+        <Label
+            FontSize="60"
+            HorizontalOptions="Center"
+            Text="Animales en adopción"
+            TextColor="#008F87"
+            VerticalOptions="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>
