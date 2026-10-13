@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SegundaHuella.RegistroUsuario"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="RegistroUsuario">
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label
+            FontAttributes="Bold"
+            FontSize="60"
+            HorizontalOptions="Center"
+            Text="SegundaHuella"
+            TextColor="#008F87" />
+        <Label
+            FontAttributes="Bold"
+            FontSize="17"
+            HorizontalOptions="Center"
+            Text="Registro para usuarios"
+            TextColor="#34495E" />
+        <Entry
+            Placeholder="Nombre"
+            TextChanged="NombreChanged"
+            TextColor="#34495E" />
+        <Entry
+            Placeholder="Apellido"
+            TextChanged="ApellidoChanged"
+            TextColor="#34495E" />
+        <Entry
+            Keyboard="Numeric"
+            Placeholder="Edad"
+            TextChanged="EdadChanged"
+            TextColor="#34495E" />
+        <Entry
+            Placeholder="Dirección"
+            TextChanged="DireccionChanged"
+            TextColor="#34495E" />
+        <Entry
+            x:Name="PassEntry"
+            IsPassword="True"
+            Placeholder="Contraseña"
+            TextColor="#34495E" />
+        
+    </VerticalStackLayout>
+</ContentPage>

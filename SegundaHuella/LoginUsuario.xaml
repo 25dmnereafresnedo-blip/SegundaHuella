@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SegundaHuella.LoginUsuario"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Acceso Usuarios">
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label
+            FontAttributes="Bold"
+            FontSize="60"
+            HorizontalOptions="Center"
+            Text="SegundaHuella"
+            TextColor="#008F87" />
+        <Label
+            FontAttributes="Bold"
+            FontSize="17"
+            HorizontalOptions="Center"
+            Text="Acceso para usuarios"
+            TextColor="#34495E" />
+        <Entry
+            Placeholder="Nombre"
+            TextChanged="NombreChanged"
+            TextColor="#34495E" />
+        <Entry
+            x:Name="PassEntry"
+            IsPassword="True"
+            IsVisible="False"
+            Placeholder="Contraseña"
+            TextColor="#34495E" />
+        <Button
+            x:Name="IniciarSesionButton"
+            Padding="-5"
+            BackgroundColor="#FF873D"
+            Clicked="IniciarSesionClicked"
+            FontAttributes="Bold"
+            FontSize="25"
+            IsVisible="False"
+            Text="Iniciar Sesión"
+            TextColor="White" />
+        <Button
+            x:Name="RegistrarButton"
+            Padding="-5"
+            BackgroundColor="White"
+            Clicked="RegistrarClicked"
+            FontAttributes="Bold"
+            FontSize="25"
+            IsVisible="True"
+            Text="¿No tienes cuenta? Regístrate"
+            TextColor="Black" />
+
+    </VerticalStackLayout>
+</ContentPage>
