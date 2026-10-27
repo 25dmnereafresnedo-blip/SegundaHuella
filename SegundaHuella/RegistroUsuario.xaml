@@ -18,27 +18,41 @@
             Text="Registro para usuarios"
             TextColor="#34495E" />
         <Entry
+            x:Name="NombreEntry"
             Placeholder="Nombre"
-            TextChanged="NombreChanged"
             TextColor="#34495E" />
+
         <Entry
+            x:Name="ApellidoEntry"
             Placeholder="Apellido"
-            TextChanged="ApellidoChanged"
             TextColor="#34495E" />
+
         <Entry
+            x:Name="EdadEntry"
             Keyboard="Numeric"
             Placeholder="Edad"
-            TextChanged="EdadChanged"
             TextColor="#34495E" />
+
         <Entry
+            x:Name="DireccionEntry"
             Placeholder="Dirección"
-            TextChanged="DireccionChanged"
             TextColor="#34495E" />
+
         <Entry
             x:Name="PassEntry"
             IsPassword="True"
             Placeholder="Contraseña"
             TextColor="#34495E" />
-        
+
+        <Button
+            x:Name="RegistrarButton"
+            Padding="-5"
+            BackgroundColor="#FF873D"
+            Clicked="RegistrarClicked"
+            FontAttributes="Bold"
+            FontSize="25"
+            IsVisible="True"
+            Text="Registrarse"
+            TextColor="White" />
     </VerticalStackLayout>
 </ContentPage>

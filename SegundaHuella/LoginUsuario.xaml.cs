@@ -1,3 +1,7 @@
+using SegundaHuella.Data;
+using SegundaHuella.Models;
+using System;
+
 namespace SegundaHuella;
 
 public partial class LoginUsuario : ContentPage
@@ -6,36 +10,64 @@ public partial class LoginUsuario : ContentPage
     {
         InitializeComponent();
     }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await UsuarioStorage.CargarAsync();
+    }
+
+    private Usuario? BuscarUsuario(string nombre)
+    {
+        foreach (Usuario u in UsuarioData.Usuarios)
+        {
+            if (u.Nombre.Trim().Equals(nombre, StringComparison.OrdinalIgnoreCase))
+            {
+                return u;
+            }
+        }
+        return null;
+    }
+
     private void NombreChanged(object sender, TextChangedEventArgs e)
     {
-        string nombre = e.NewTextValue.ToString() ?? "";
-        if (nombre == "Nerea")
+        string nombre = e.NewTextValue?.Trim() ?? "";
+
+        if (BuscarUsuario(nombre) != null)
         {
             PassEntry.IsVisible = true;
+            PassEntry.HeightRequest = 50;
             IniciarSesionButton.IsVisible = true;
         }
         else
         {
             PassEntry.IsVisible = false;
+            PassEntry.HeightRequest = 0;
+            PassEntry.Text = "";
             IniciarSesionButton.IsVisible = false;
         }
     }
-    private void IniciarSesionClicked(object sender, EventArgs e)
+
+    private async void IniciarSesionClicked(object sender, EventArgs e)
     {
+        string nombre = NombreEntry.Text?.Trim() ?? "";
         string password = PassEntry.Text ?? "";
-        if (password == "1234")
+
+        Usuario? usuario = BuscarUsuario(nombre);
+
+        if (usuario != null && usuario.Contrasenia == password)
         {
-            Page actual = this;
-            Navigation.PushAsync(new MainPage());
-            Navigation.RemovePage(actual);
+            await Navigation.PushAsync(new MainPage());
+            Navigation.RemovePage(this);
         }
         else
         {
-            DisplayAlertAsync("Error", "Contraseña incorrecta", "Volver");
+            await DisplayAlert("Error", "Contraseña incorrecta", "Volver");
         }
     }
-    private void RegistrarClicked(object sender, EventArgs e)
+
+    private async void RegistrarClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new RegistroUsuario());
+        await Navigation.PushAsync(new RegistroUsuario());
     }
 }

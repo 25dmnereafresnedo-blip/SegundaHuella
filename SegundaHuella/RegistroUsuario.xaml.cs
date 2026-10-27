@@ -1,37 +1,49 @@
+using SegundaHuella.Data;
+using SegundaHuella.Models;
+using System;
+
 namespace SegundaHuella;
 
 public partial class RegistroUsuario : ContentPage
 {
-    private string nombre = "";
-    private string apellido = "";
-    private int edad = 0; 
-    private string direccion = "";
-
     public RegistroUsuario()
     {
         InitializeComponent();
     }
 
-    private void NombreChanged(object sender, TextChangedEventArgs e)
+    private async void RegistrarClicked(object sender, EventArgs e)
     {
-        nombre = e.NewTextValue ?? "";
-    }
+        string nombre = NombreEntry.Text?.Trim() ?? "";
+        string apellido = ApellidoEntry.Text?.Trim() ?? "";
+        string direccion = DireccionEntry.Text?.Trim() ?? "";
+        string contrasenia = PassEntry.Text ?? "";
+        string edad = EdadEntry.Text?.Trim() ?? "";
 
-    private void ApellidoChanged(object sender, TextChangedEventArgs e)
-    {
-        apellido = e.NewTextValue ?? "";
-    }
-
-    private void EdadChanged(object sender, TextChangedEventArgs e)
-    {
-        if (!int.TryParse(e.NewTextValue, out edad))
+        if (nombre == "" || apellido == "" || direccion == "" || contrasenia == "" || edad == "")
         {
-            edad = 0;
+            await DisplayAlert("Error", "Por favor, rellene todos los campos correctamente.", "OK");
+            return;
         }
-    }
 
-    private void DireccionChanged(object sender, TextChangedEventArgs e)
-    {
-        direccion = e.NewTextValue ?? "";
+        UsuarioData.Usuarios.Add(new Usuario
+        {
+            Nombre = nombre,
+            Apellido = apellido,
+            Edad = edad,
+            Direccion = direccion,
+            Contrasenia = contrasenia
+        });
+
+        await UsuarioStorage.GuardarAsync();
+
+        await DisplayAlert("Correcto", "Usuario registrado con éxito", "OK");
+
+        NombreEntry.Text = "";
+        ApellidoEntry.Text = "";
+        EdadEntry.Text = "";
+        DireccionEntry.Text = "";
+        PassEntry.Text = "";
+
+        await Navigation.PopAsync();
     }
 }

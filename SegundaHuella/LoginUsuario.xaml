@@ -17,10 +17,13 @@
             HorizontalOptions="Center"
             Text="Acceso para usuarios"
             TextColor="#34495E" />
+
         <Entry
+            x:Name="NombreEntry"
             Placeholder="Nombre"
             TextChanged="NombreChanged"
             TextColor="#34495E" />
+
         <Entry
             x:Name="PassEntry"
             IsPassword="True"
