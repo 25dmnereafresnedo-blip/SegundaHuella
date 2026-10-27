@@ -11,7 +11,7 @@ public partial class RegistroUsuario : ContentPage
         InitializeComponent();
     }
 
-    private async void RegistrarClicked(object sender, EventArgs e)
+    private async void RegistrarseClicked(object sender, EventArgs e)
     {
         string nombre = NombreEntry.Text?.Trim() ?? "";
         string apellido = ApellidoEntry.Text?.Trim() ?? "";
