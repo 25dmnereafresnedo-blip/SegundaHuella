@@ -17,7 +17,7 @@ public static class ProtectoraStorage
 
         public static async Task GuardarAsync()
         {
-        string json = JsonSerializer.Serialize(ProtectoraData.Protectoras);
+            string json = JsonSerializer.Serialize(ProtectoraData.Protectoras);
             await File.WriteAllTextAsync(rutaArchivo, json);
         }
 
@@ -38,17 +38,18 @@ public static class ProtectoraStorage
 
             string json = await File.ReadAllTextAsync(rutaArchivo);
 
-        List<Protectora>? protectorasGuardadas = JsonSerializer.Deserialize<List<Protectora>>(json);
-        if (protectorasGuardadas is null)
+            List<Protectora>? protectorasGuardadas = JsonSerializer.Deserialize<List<Protectora>>(json);
+            if (protectorasGuardadas is null)
             {
                 return;
             }
 
-        ProtectoraData.Protectoras.Clear();
+            ProtectoraData.Protectoras.Clear();
 
-        foreach (Protectora protectora in protectorasGuardadas)
+            foreach (Protectora protectora in protectorasGuardadas)
             {
-            ProtectoraData.Protectoras.Add(protectora);
+                ProtectoraData.Protectoras.Add(protectora);
+            }
         }
     }
 }
