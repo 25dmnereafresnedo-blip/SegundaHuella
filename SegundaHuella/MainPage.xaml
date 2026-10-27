@@ -4,26 +4,51 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
+    <ScrollView BackgroundColor="White">
+        <VerticalStackLayout Padding="30,35" Spacing="30">
             <Image
                 Aspect="AspectFit"
-                HeightRequest="185"
-                SemanticProperties.Description="dot net bot in a submarine number ten"
-                Source="dotnet_bot.png" />
+                HeightRequest="200"
+                Source="logo.png" />
 
             <Label
-                SemanticProperties.HeadingLevel="Level1"
-                Style="{StaticResource Headline}"
-                Text="Hello, World!" />
+                FontAttributes="Bold"
+                FontSize="50"
+                HorizontalOptions="Center"
+                Text="SegundaHuella"
+                VerticalOptions="Center" />
 
             <Label
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level2"
-                Style="{StaticResource SubHeadline}"
-                Text="Welcome to &#10;.NET Multi-platform App UI" />
+                FontSize="23"
+                HorizontalOptions="Center"
+                Text="Adopte o acoge cerca de ti"
+                VerticalOptions="Center" />
 
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="165"
+                Source="animales.png" />
+
+            <Button
+                BackgroundColor="Orange"
+                Clicked="UsuarioClicked"
+                CornerRadius="30"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Ver animales" />
+
+            <Button
+                BackgroundColor="White"
+                BorderColor="DarkCyan"
+                BorderWidth="3"
+                Clicked="ProtectoraClicked"
+                CornerRadius="30"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Soy una protectora"
+                TextColor="DarkCyan" />
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
+

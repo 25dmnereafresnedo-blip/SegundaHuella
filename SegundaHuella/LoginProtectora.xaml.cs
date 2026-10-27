@@ -56,7 +56,7 @@ public partial class LoginProtectora : ContentPage
 
         if (protectora != null && protectora.Contrasenia == password)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new AnimalesEnAdopcion());
             Navigation.RemovePage(this);
         }
         else

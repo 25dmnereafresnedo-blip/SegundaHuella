@@ -57,7 +57,7 @@ public partial class LoginUsuario : ContentPage
 
         if (usuario != null && usuario.Contrasenia == password)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new AnimalesEnAdopcion());
             Navigation.RemovePage(this);
         }
         else
