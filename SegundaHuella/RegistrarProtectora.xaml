@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SegundaHuella.RegistroProtectora"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="RegistroProtectora"
+    BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="28,45" Spacing="18">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="30"
+                HorizontalOptions="Center"
+                Text="SegundaHuella"
+                TextColor="#008F87" />
+
+            <Label
+                FontSize="17"
+                HorizontalOptions="Center"
+                Text="Registro para protectoras"
+                TextColor="#34495E" />
+
+            <Entry
+                x:Name="NombreEntry"
+                BackgroundColor="White"
+                Placeholder="Nombre"
+                TextColor="#34495E" />
+            <Entry
+                x:Name="DireccionEntry"
+                BackgroundColor="White"
+                Placeholder="Dirección"
+                TextColor="#34495E" />
+            <Entry
+                x:Name="PassEntry"
+                BackgroundColor="White"
+                HeightRequest="50"
+                IsPassword="True"
+                IsVisible="True"
+                Placeholder="Contraseña"
+                TextColor="#34495E" />
+
+            <Button
+                BackgroundColor="#FF873D"
+                Clicked="RegistrarseClicked"
+                CornerRadius="25"
+                HeightRequest="52"
+                Text="Registrarse"
+                TextColor="White" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

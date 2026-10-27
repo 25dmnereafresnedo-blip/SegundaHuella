@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SegundaHuella.LoginProtectora"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Acceso protectoras"
+    BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="28,45" Spacing="18">
+
+            <Label
+                FontSize="60"
+                HorizontalOptions="Center"
+                TextColor="#008F87" />
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="30"
+                HorizontalOptions="Center"
+                Text="SegundaHuella"
+                TextColor="#008F87" />
+
+            <Label
+                FontSize="17"
+                HorizontalOptions="Center"
+                Text="Acceso para protectoras"
+                TextColor="#34495E" />
+
+            <Entry
+                x:Name="NombreEntry"
+                BackgroundColor="White"
+                Placeholder="Nombre"
+                TextChanged="NombreChanged" />
+
+            <Entry
+                x:Name="PassEntry"
+                BackgroundColor="White"
+                HeightRequest="0"
+                IsPassword="True"
+                IsVisible="False"
+                Placeholder="Contraseña"
+                TextColor="#34495E" />
+
+            <Button
+                x:Name="IniciarSesionButton"
+                BackgroundColor="#FF873D"
+                Clicked="IniciarSesionClicked"
+                CornerRadius="25"
+                FontAttributes="Bold"
+                HeightRequest="52"
+                IsVisible="False"
+                Text="Iniciar Sesión"
+                TextColor="White" />
+
+            <Button
+                x:Name="RegistrarButton"
+                BackgroundColor="White"
+                Clicked="RegistrarClicked"
+                CornerRadius="25"
+                FontAttributes="Bold"
+                HeightRequest="52"
+                Text="¿No tienes cuenta? Regístrate"
+                TextColor="Black" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

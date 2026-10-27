@@ -71,10 +71,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="LoginProtectora.xaml.cs">
+	    <DependentUpon>LoginProtectora.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="RegistrarProtectora.xaml.cs">
+	    <DependentUpon>RegistrarProtectora.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="AnimalesEnAdopcion.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="LoginUsuario.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="LoginProtectora.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="RegistrarProtectora.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RegistroUsuario.xaml">
