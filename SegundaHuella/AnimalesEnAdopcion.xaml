@@ -4,13 +4,77 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="AnimalesEnAdopcion">
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="20" Spacing="16">
         <Label
-            FontSize="60"
+            FontSize="32"
             HorizontalOptions="Center"
             Text="Animales en adopción"
             TextColor="#008F87"
             VerticalOptions="Center" />
 
+        <Button
+            BackgroundColor="Orange"
+            Clicked="OnAnadirAnimalClicked"
+            x:Name="AnadirAnimalButton"
+            CornerRadius="24"
+            FontAttributes="Bold"
+            Text="+ Añadir mascota"
+            TextColor="White" />
+
+        <CollectionView
+            x:Name="AnimalesCollectionView"
+            EmptyView="Todavía no hay mascotas en adopción">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="0,4"
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="DarkCyan">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="7">
+
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="180"
+                                Source="{Binding Imagen}"
+                                WidthRequest="250" />
+
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                Text="{Binding Nombre}"
+                                TextColor="Black" />
+
+                            <Label 
+                                Text="{Binding Especie, StringFormat=Especie: {0}}" 
+                                TextColor="Black" />
+                            <Label 
+                                Text="{Binding Edad, StringFormat=Edad: {0}}" 
+                                TextColor="Black" />
+                            <Label 
+                                Text="{Binding Tamaño, StringFormat=Tamaño: {0}}" 
+                                TextColor="Black" />
+
+                            <Button
+                                BackgroundColor="DarkCyan"
+                                FontAttributes="Bold"
+                                Text="Ver más"
+                                CommandParameter="{Binding .}"
+                                Clicked="OnVerMasClicked"
+                                TextColor="White" />
+                        </VerticalStackLayout>
+                        
+                    </Border>
+                    
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        
     </VerticalStackLayout>
-</ContentPage>
+    
+</ContentPage>  

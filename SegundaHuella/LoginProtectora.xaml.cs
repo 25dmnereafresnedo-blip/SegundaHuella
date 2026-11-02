@@ -56,6 +56,8 @@ public partial class LoginProtectora : ContentPage
 
         if (protectora != null && protectora.Contrasenia == password)
         {
+            SesionData.EsProtectora = true;
+
             await Navigation.PushAsync(new AnimalesEnAdopcion());
             Navigation.RemovePage(this);
         }

@@ -10,5 +10,6 @@ namespace SegundaHuella.Models
         public string Edad { get; set; } = "";
         public string Especie { get; set; } = "";
         public string Tamaño { get; set; } = "";
+        public string Imagen { get; set; } = "";
     }
 }

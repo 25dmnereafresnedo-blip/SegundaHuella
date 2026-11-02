@@ -1,10 +1,16 @@
+using SegundaHuella.Models;
+
 namespace SegundaHuella;
 
 public partial class AnimalDetailsPage : ContentPage
 {
-    public AnimalDetailsPage()
+    private readonly Animal animal;
+
+    public AnimalDetailsPage(Animal animal)
     {
+        this.animal = animal;
         InitializeComponent();
+        BindingContext = animal;
     }
 
     // Acción para el botón de volver atrás ("<")
@@ -16,12 +22,12 @@ public partial class AnimalDetailsPage : ContentPage
     // Acción para el botón de "Me interesa"
     private async void OnInteresaClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Favoritos", "Has añadido a Luna a tu lista de intereses.", "OK");
+        await DisplayAlertAsync("Favoritos", $"Has añadido a {animal.Nombre} a tu lista de intereses.", "OK");
     }
 
     // Acción para el botón de "Contactar"
     private async void OnContactarClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Contacto", "Abriendo formulario para contactar con la protectora de Luna...", "OK");
+        await DisplayAlertAsync("Contacto", $"Abriendo formulario para contactar con la protectora de {animal.Nombre}...", "OK");
     }
 }

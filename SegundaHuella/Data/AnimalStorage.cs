@@ -1,55 +1,50 @@
 ﻿using SegundaHuella.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 
 namespace SegundaHuella.Data;
 
-public static class ProtectoraStorage
+public static class AnimalStorage
 {
-    internal class AnimalStorage
+    private static readonly string rutaArchivo =
+        Path.Combine(FileSystem.Current.AppDataDirectory, "animales.json");
+
+    public static bool DatosCargados { get; private set; }
+
+    public static async Task GuardarAsync()
     {
-        private static readonly string rutaArchivo =
-        Path.Combine(FileSystem.Current.AppDataDirectory, "protectoras.json");
+        string json = JsonSerializer.Serialize(AnimalData.Animales);
+        await File.WriteAllTextAsync(rutaArchivo, json);
+    }
 
-        public static bool DatosCargados { get; private set; }
-
-        public static async Task GuardarAsync()
+    public static async Task CargarAsync()
+    {
+        if (DatosCargados)
         {
-            string json = JsonSerializer.Serialize(ProtectoraData.Protectoras);
-            await File.WriteAllTextAsync(rutaArchivo, json);
+            return;
         }
 
-        public static async Task CargarAsync()
+        DatosCargados = true;
+
+        if (!File.Exists(rutaArchivo))
         {
+            return;
+        }
 
-            if (DatosCargados)
-            {
-                return;
-            }
+        string json = await File.ReadAllTextAsync(rutaArchivo);
 
-            DatosCargados = true;
+        List<Animal>? animalesGuardados =
+            JsonSerializer.Deserialize<List<Animal>>(json);
 
-            if (!File.Exists(rutaArchivo))
-            {
-                return;
-            }
+        if (animalesGuardados is null)
+        {
+            return;
+        }
 
-            string json = await File.ReadAllTextAsync(rutaArchivo);
+        AnimalData.Animales.Clear();
 
-            List<Protectora>? protectorasGuardadas = JsonSerializer.Deserialize<List<Protectora>>(json);
-            if (protectorasGuardadas is null)
-            {
-                return;
-            }
-
-            ProtectoraData.Protectoras.Clear();
-
-            foreach (Protectora protectora in protectorasGuardadas)
-            {
-                ProtectoraData.Protectoras.Add(protectora);
-            }
+        foreach (Animal animal in animalesGuardados)
+        {
+            AnimalData.Animales.Add(animal);
         }
     }
 }
