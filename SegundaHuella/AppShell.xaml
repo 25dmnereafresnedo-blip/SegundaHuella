@@ -7,8 +7,6 @@
     Title="SegundaHuella"
     Shell.NavBarIsVisible="False">
 
-    <ShellContent      
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
 
 </Shell>

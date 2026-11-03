@@ -8,16 +8,20 @@
     Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="Auto, *">
-        <Grid Grid.Row="0" ColumnDefinitions="Auto, *" Padding="15,10,15,0">
-            <Button Grid.Column="0" 
-                    Text="◀ Volver" 
-                    Clicked="OnVolverClicked" 
-                    BackgroundColor="Transparent" 
-                    TextColor="#008F87"
-                    FontAttributes="Bold"
-                    HeightRequest="40"
-                    WidthRequest="90"
-                    HorizontalOptions="Start"/>
+        <Grid
+            Grid.Row="0"
+            Padding="15,10,15,0"
+            ColumnDefinitions="Auto, *">
+            <Button
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                Clicked="OnVolverClicked"
+                FontAttributes="Bold"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Text="◀ Volver"
+                TextColor="#008F87"
+                WidthRequest="90" />
         </Grid>
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="28,20,28,45" Spacing="18">

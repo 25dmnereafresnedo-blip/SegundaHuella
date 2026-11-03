@@ -1,50 +1,191 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SegundaHuella.AnimalDetailsPage"
-             BackgroundColor="White"
-             Title="Detalles del animal">
+<ContentPage
+    x:Class="SegundaHuella.AnimalDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Detalles del animal"
+    BackgroundColor="White">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
             <Grid>
-                <Button Text="&lt;" HorizontalOptions="Start" WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White" TextColor="Black" FontSize="18" FontAttributes="Bold" Clicked="OnBackButtonClicked"/>
-                <Button Text="♡" HorizontalOptions="End" WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="White" TextColor="#FF5A5F" FontSize="18" FontAttributes="Bold"/>
+                <Button
+                    BackgroundColor="White"
+                    Clicked="OnBackButtonClicked"
+                    CornerRadius="20"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Text="&lt;"
+                    TextColor="Black"
+                    WidthRequest="40" />
+                <Button
+                    BackgroundColor="White"
+                    CornerRadius="20"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="40"
+                    HorizontalOptions="End"
+                    Text="♡"
+                    TextColor="#FF5A5F"
+                    WidthRequest="40" />
             </Grid>
 
             <Image
                 Aspect="AspectFit"
                 HeightRequest="280"
                 Source="{Binding Imagen}" />
-            <HorizontalStackLayout Spacing="10" VerticalOptions="Center" Margin="0,10,0,0">
-                <Label Text="{Binding Nombre}" FontSize="32" FontAttributes="Bold" TextColor="#001F3F"/>
-            
+            <HorizontalStackLayout
+                Margin="0,10,0,0"
+                Spacing="10"
+                VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="32"
+                    Text="{Binding Nombre}"
+                    TextColor="#001F3F" />
+
             </HorizontalStackLayout>
 
-            <BoxView HeightRequest="1" Color="#E0E0E0" Margin="0,5"/>
-            <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="40, 120, *" RowSpacing="15">
-                <Label Grid.Row="0" Grid.Column="0" Text="🐾" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center"/>
-                <Label Grid.Row="0" Grid.Column="1" Text="Especie:" TextColor="#555555" FontSize="16" VerticalOptions="Center"/>
-                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Especie}" FontAttributes="Bold" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                <Label Grid.Row="1" Grid.Column="0" Text="📅" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="Edad:" TextColor="#555555" FontSize="16" VerticalOptions="Center"/>
-                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Edad}" FontAttributes="Bold" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                <Label Grid.Row="2" Grid.Column="0" Text="📏" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center"/>
-                <Label Grid.Row="2" Grid.Column="1" Text="Tamaño:" TextColor="#555555" FontSize="16" VerticalOptions="Center"/>
-                <Label Grid.Row="2" Grid.Column="2" Text="{Binding Tamaño}" FontAttributes="Bold" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                <Label Grid.Row="3" Grid.Column="0" Text="🏠" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center"/>
-                <Label Grid.Row="3" Grid.Column="1" Text="Piso pequeño:" TextColor="#555555" FontSize="16" VerticalOptions="Center"/>
-                <Label Grid.Row="3" Grid.Column="2" Text="Sí" FontAttributes="Bold" TextColor="#006D5B" FontSize="16" VerticalOptions="Center"/>
+            <BoxView
+                Margin="0,5"
+                HeightRequest="1"
+                Color="#E0E0E0" />
+            <Grid
+                ColumnDefinitions="40, 120, *"
+                RowDefinitions="Auto, Auto, Auto, Auto"
+                RowSpacing="15">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="🐾"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="16"
+                    Text="Especie:"
+                    TextColor="#555555"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="{Binding Especie}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="📅"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="16"
+                    Text="Edad:"
+                    TextColor="#555555"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="{Binding Edad}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="📏"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="16"
+                    Text="Tamaño:"
+                    TextColor="#555555"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="{Binding Tamaño}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="🏠"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontSize="16"
+                    Text="Piso pequeño:"
+                    TextColor="#555555"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Sí"
+                    TextColor="#006D5B"
+                    VerticalOptions="Center" />
             </Grid>
 
-            <BoxView HeightRequest="1" Color="#E0E0E0" Margin="0,5"/>
+            <BoxView
+                Margin="0,5"
+                HeightRequest="1"
+                Color="#E0E0E0" />
             <HorizontalStackLayout Spacing="10">
-                <Label Text="🐾" FontSize="18" VerticalOptions="Center"/>
-                <Label Text="Disponible para adopción" FontAttributes="Bold" TextColor="#006D5B" FontSize="16" VerticalOptions="Center"/>
+                <Label
+                    FontSize="18"
+                    Text="🐾"
+                    VerticalOptions="Center" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Disponible para adopción"
+                    TextColor="#006D5B"
+                    VerticalOptions="Center" />
             </HorizontalStackLayout>
-            <ContentView VerticalOptions="FillAndExpand" MinimumHeightRequest="40"/>
-            <Grid ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0, 20, 0, 10">
-                <Button Grid.Column="0" Text="♡ Me interesa" TextColor="#006D5B" BackgroundColor="Transparent" BorderColor="#006D5B" BorderWidth="2" CornerRadius="25" HeightRequest="50" FontAttributes="Bold" Clicked="OnInteresaClicked"/>
-                <Button Grid.Column="1" Text="✉ Contactar" TextColor="White" BackgroundColor="#FF8C00" CornerRadius="25" HeightRequest="50" FontAttributes="Bold" Clicked="OnContactarClicked"/>
+            <ContentView MinimumHeightRequest="40" VerticalOptions="FillAndExpand" />
+            <Grid
+                Margin="0,20,0,10"
+                ColumnDefinitions="*, *"
+                ColumnSpacing="15">
+                <Button
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#006D5B"
+                    BorderWidth="2"
+                    Clicked="OnInteresaClicked"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    Text="♡ Me interesa"
+                    TextColor="#006D5B" />
+                <Button
+                    Grid.Column="1"
+                    BackgroundColor="#FF8C00"
+                    Clicked="OnContactarClicked"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    Text="✉ Contactar"
+                    TextColor="White" />
             </Grid>
 
         </VerticalStackLayout>
