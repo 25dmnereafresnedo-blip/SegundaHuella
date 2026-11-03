@@ -4,65 +4,79 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Acceso protectoras"
-    BackgroundColor="White">
+    BackgroundColor="White"
+    Shell.NavBarIsVisible="False">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="28,45" Spacing="18">
+    <Grid RowDefinitions="Auto, *">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *" Padding="15,10,15,0">
+            <Button Grid.Column="0" 
+                    Text="◀ Volver" 
+                    Clicked="OnVolverClicked" 
+                    BackgroundColor="Transparent" 
+                    TextColor="#008F87"
+                    FontAttributes="Bold"
+                    HeightRequest="40"
+                    WidthRequest="90"
+                    HorizontalOptions="Start"/>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="28,20,28,45" Spacing="18">
 
-            <Label
-                FontSize="60"
-                HorizontalOptions="Center"
-                TextColor="#008F87" />
+                <Label
+                    FontSize="60"
+                    HorizontalOptions="Center"
+                    TextColor="#008F87" />
 
-            <Label
-                FontAttributes="Bold"
-                FontSize="30"
-                HorizontalOptions="Center"
-                Text="SegundaHuella"
-                TextColor="#008F87" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    HorizontalOptions="Center"
+                    Text="SegundaHuella"
+                    TextColor="#008F87" />
 
-            <Label
-                FontSize="17"
-                HorizontalOptions="Center"
-                Text="Acceso para protectoras"
-                TextColor="#34495E" />
+                <Label
+                    FontSize="17"
+                    HorizontalOptions="Center"
+                    Text="Acceso para protectoras"
+                    TextColor="#34495E" />
 
-            <Entry
-                x:Name="NombreEntry"
-                BackgroundColor="White"
-                Placeholder="Nombre"
-                TextChanged="NombreChanged" />
+                <Entry
+                    x:Name="NombreEntry"
+                    BackgroundColor="White"
+                    Placeholder="Nombre"
+                    TextChanged="NombreChanged" />
 
-            <Entry
-                x:Name="PassEntry"
-                BackgroundColor="White"
-                HeightRequest="0"
-                IsPassword="True"
-                IsVisible="False"
-                Placeholder="Contraseña"
-                TextColor="#34495E" />
+                <Entry
+                    x:Name="PassEntry"
+                    BackgroundColor="White"
+                    HeightRequest="0"
+                    IsPassword="True"
+                    IsVisible="False"
+                    Placeholder="Contraseña"
+                    TextColor="#34495E" />
 
-            <Button
-                x:Name="IniciarSesionButton"
-                BackgroundColor="#FF873D"
-                Clicked="IniciarSesionClicked"
-                CornerRadius="25"
-                FontAttributes="Bold"
-                HeightRequest="52"
-                IsVisible="False"
-                Text="Iniciar Sesión"
-                TextColor="White" />
+                <Button
+                    x:Name="IniciarSesionButton"
+                    BackgroundColor="#FF873D"
+                    Clicked="IniciarSesionClicked"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    HeightRequest="52"
+                    IsVisible="False"
+                    Text="Iniciar Sesión"
+                    TextColor="White" />
 
-            <Button
-                x:Name="RegistrarButton"
-                BackgroundColor="White"
-                Clicked="RegistrarClicked"
-                CornerRadius="25"
-                FontAttributes="Bold"
-                HeightRequest="52"
-                Text="¿No tienes cuenta? Regístrate"
-                TextColor="Black" />
+                <Button
+                    x:Name="RegistrarButton"
+                    BackgroundColor="White"
+                    Clicked="RegistrarClicked"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    HeightRequest="52"
+                    Text="¿No tienes cuenta? Regístrate"
+                    TextColor="Black" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
