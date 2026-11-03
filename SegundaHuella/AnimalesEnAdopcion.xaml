@@ -13,17 +13,15 @@
             VerticalOptions="Center" />
 
         <Button
+            x:Name="AnadirAnimalButton"
             BackgroundColor="Orange"
             Clicked="OnAnadirAnimalClicked"
-            x:Name="AnadirAnimalButton"
             CornerRadius="24"
             FontAttributes="Bold"
             Text="+ Añadir mascota"
             TextColor="White" />
 
-        <CollectionView
-            x:Name="AnimalesCollectionView"
-            EmptyView="Todavía no hay mascotas en adopción">
+        <CollectionView x:Name="AnimalesCollectionView" EmptyView="Todavía no hay mascotas en adopción">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border
@@ -34,47 +32,47 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10" />
                         </Border.StrokeShape>
-                        <VerticalStackLayout Spacing="7">
+
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="16">
 
                             <Image
+                                Grid.Column="0"
                                 Aspect="AspectFill"
                                 HeightRequest="180"
                                 Source="{Binding Imagen}"
                                 WidthRequest="250" />
 
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="22"
-                                Text="{Binding Nombre}"
-                                TextColor="Black" />
+                            <VerticalStackLayout Grid.Column="1" Spacing="7">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="22"
+                                    Text="{Binding Nombre}"
+                                    TextColor="Black" />
 
-                            <Label 
-                                Text="{Binding Especie, StringFormat=Especie: {0}}" 
-                                TextColor="Black" />
-                            <Label 
-                                Text="{Binding Edad, StringFormat=Edad: {0}}" 
-                                TextColor="Black" />
-                            <Label 
-                                Text="{Binding Tamaño, StringFormat=Tamaño: {0}}" 
-                                TextColor="Black" />
+                                <Label Text="{Binding Especie, StringFormat='Especie: {0}'}" TextColor="Black" />
 
-                            <Button
-                                BackgroundColor="DarkCyan"
-                                FontAttributes="Bold"
-                                Text="Ver más"
-                                CommandParameter="{Binding .}"
-                                Clicked="OnVerMasClicked"
-                                TextColor="White" />
-                        </VerticalStackLayout>
-                        
+                                <Label Text="{Binding Edad, StringFormat='Edad: {0}'}" TextColor="Black" />
+
+                                <Label Text="{Binding Tamaño, StringFormat='Tamaño: {0}'}" TextColor="Black" />
+
+                                <Button
+                                    BackgroundColor="DarkCyan"
+                                    Clicked="OnVerMasClicked"
+                                    CommandParameter="{Binding .}"
+                                    FontAttributes="Bold"
+                                    Text="Ver más"
+                                    TextColor="White" />
+                            </VerticalStackLayout>
+
+                        </Grid>
                     </Border>
-                    
+
                 </DataTemplate>
-                
+
             </CollectionView.ItemTemplate>
-            
+
         </CollectionView>
-        
+
     </VerticalStackLayout>
-    
+
 </ContentPage>  

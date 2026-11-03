@@ -3,13 +3,13 @@
     x:Class="SegundaHuella.AnadirAnimalPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="white"
+    BackgroundColor="#FEF9F5"
     Title="Añadir mascota">
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="16">
             
             <Label 
-                FontAttributes="Bold" FontSize="30" Text="Añadir mascota" TextColor="#008F87" 
+                FontAttributes="Bold" FontSize="30" Text="Añadir mascota" TextColor="DarkCyan" 
                 />
             
             <Label
@@ -28,7 +28,7 @@
                 TextColor="White" />
 
             <Button 
-                BackgroundColor="#008F87" 
+                BackgroundColor="DarkCyan" 
                 Clicked="OnGuardarClicked" 
                 CornerRadius="24" 
                 FontAttributes="Bold" 
@@ -39,7 +39,7 @@
                 BackgroundColor="Transparent" 
                 Clicked="OnCancelarClicked" 
                 Text="Cancelar" 
-                TextColor="#008F87" />
+                TextColor="DarkCyan" />
             
         </VerticalStackLayout>
     </ScrollView>
