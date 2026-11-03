@@ -82,6 +82,6 @@ public partial class AnimalDetailsPage : ContentPage
             return;
         }
 
-        await DisplayAlertAsync("Contacto", $"Abriendo formulario para contactar con la protectora de {animal.Nombre}...", "OK");
+        await Navigation.PushAsync(new ContactoPage(animal.Nombre));
     }
 }

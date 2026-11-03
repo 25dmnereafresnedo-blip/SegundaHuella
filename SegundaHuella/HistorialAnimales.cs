@@ -79,12 +79,26 @@ public class HistorialAnimales : ContentPage
 
         historialCollectionView.ItemsSource = AnimalData.AnimalesEliminados;
 
+        Button volverButton = new()
+        {
+            BackgroundColor = Colors.White,
+            BorderColor = Colors.DarkCyan,
+            BorderWidth = 2,
+            CornerRadius = 20,
+            FontAttributes = FontAttributes.Bold,
+            HorizontalOptions = LayoutOptions.Start,
+            Text = "VOLVER",
+            TextColor = Colors.DarkCyan
+        };
+        volverButton.Clicked += OnVolverClicked;
+
         Content = new VerticalStackLayout
         {
             Padding = 20,
             Spacing = 16,
             Children =
             {
+                volverButton,
                 new Label
                 {
                     FontSize = 32,
@@ -96,6 +110,11 @@ public class HistorialAnimales : ContentPage
                 historialCollectionView
             }
         };
+    }
+
+    private async void OnVolverClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
     }
 
     protected override async void OnAppearing()
