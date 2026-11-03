@@ -21,6 +21,18 @@
             Text="+ Añadir mascota"
             TextColor="White" />
 
+        <Button
+            x:Name="HistorialButton"
+            Grid.Column="0"
+            BackgroundColor="Transparent"
+            BorderColor="DarkCyan"
+            BorderWidth="2"
+            CornerRadius="25"
+            FontAttributes="Bold"
+            HeightRequest="50"
+            Text="Historial"
+            TextColor="DarkCyan" />
+
         <CollectionView x:Name="AnimalesCollectionView" EmptyView="Todavía no hay mascotas en adopción">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -40,7 +52,7 @@
                                 Aspect="AspectFill"
                                 HeightRequest="180"
                                 Source="{Binding Imagen}"
-                                WidthRequest="250" />
+                                WidthRequest="140" />
 
                             <VerticalStackLayout Grid.Column="1" Spacing="7">
                                 <Label

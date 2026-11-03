@@ -3,23 +3,57 @@
     x:Class="SegundaHuella.AnadirAnimalPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="White"
-    Title="Añadir mascota">
+    Title="Añadir mascota"
+    BackgroundColor="White">
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="16">
-            
-            <Label 
-                FontAttributes="Bold" FontSize="30" Text="Añadir mascota" TextColor="DarkCyan" 
-                />
-            
+
             <Label
-                Text="Completa los datos de la mascota para publicarla en adopción." TextColor="#555555" 
-                />
-            
-            <Entry x:Name="NombreEntry" Placeholder="Nombre" TextColor="Black" />
-            <Entry x:Name="EspecieEntry" Placeholder="Especie (perro, gato...)" TextColor="Black" />
-            <Entry x:Name="EdadEntry" Placeholder="Edad" TextColor="Black" />
-            <Entry x:Name="TamanoEntry" Placeholder="Tamaño" TextColor="Black" />
+                FontAttributes="Bold"
+                FontSize="30"
+                Text="Añadir mascota"
+                TextColor="DarkCyan" />
+
+            <Label Text="Completa los datos de la mascota para publicarla en adopción." TextColor="#555555" />
+
+            <Entry
+                x:Name="NombreEntry"
+                Placeholder="Nombre"
+                TextColor="Black" />
+            <Picker
+                x:Name="EspeciePicker"
+                Title="Selecciona la especie"
+                SelectedIndexChanged="OnEspecieChanged"
+                TextColor="Black"
+                TitleColor="Gray">
+                <Picker.Items>
+                    <x:String>Perro</x:String>
+                    <x:String>Gato</x:String>
+                    <x:String>Conejo</x:String>
+                    <x:String>Ave</x:String>
+                    <x:String>Otro</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry
+                x:Name="OtraEspecieEntry"
+                IsVisible="False"
+                Placeholder="Escribe la especie"
+                TextColor="Black" />
+            <Entry
+                x:Name="EdadEntry"
+                Placeholder="Edad"
+                TextColor="Black" />
+            <Picker
+                x:Name="TamanoPicker"
+                Title="Selecciona el tamaño"
+                TextColor="Black"
+                TitleColor="Gray">
+                <Picker.Items>
+                    <x:String>Pequeño</x:String>
+                    <x:String>Mediano</x:String>
+                    <x:String>Grande</x:String>
+                </Picker.Items>
+            </Picker>
 
             <Button
                 BackgroundColor="DarkCyan"
@@ -27,20 +61,20 @@
                 Text="Seleccionar imagen"
                 TextColor="White" />
 
-            <Button 
-                BackgroundColor="DarkCyan" 
-                Clicked="OnGuardarClicked" 
-                CornerRadius="24" 
-                FontAttributes="Bold" 
-                Text="Guardar mascota" 
+            <Button
+                BackgroundColor="DarkCyan"
+                Clicked="OnGuardarClicked"
+                CornerRadius="24"
+                FontAttributes="Bold"
+                Text="Guardar mascota"
                 TextColor="White" />
-            
-            <Button 
-                BackgroundColor="Transparent" 
-                Clicked="OnCancelarClicked" 
-                Text="Cancelar" 
+
+            <Button
+                BackgroundColor="Transparent"
+                Clicked="OnCancelarClicked"
+                Text="Cancelar"
                 TextColor="DarkCyan" />
-            
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

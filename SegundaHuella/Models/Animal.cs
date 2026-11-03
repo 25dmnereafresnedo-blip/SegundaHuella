@@ -11,5 +11,6 @@ namespace SegundaHuella.Models
         public string Especie { get; set; } = "";
         public string Tamaño { get; set; } = "";
         public string Imagen { get; set; } = "";
+        public string EstadoHistorial { get; set; } = "";
     }
 }

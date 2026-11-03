@@ -9,7 +9,9 @@ public partial class AnimalesEnAdopcion : ContentPage
     {
         InitializeComponent();
         AnimalesCollectionView.ItemsSource = AnimalData.Animales;
+        HistorialButton.IsVisible = SesionData.EsProtectora;
         AnadirAnimalButton.IsVisible = SesionData.EsProtectora;
+        HistorialButton.Clicked += OnHistorialClicked;
     }
     protected override async void OnAppearing()
     {
@@ -27,6 +29,16 @@ public partial class AnimalesEnAdopcion : ContentPage
         }
 
         await Navigation.PushAsync(new AnadirAnimalPage());
+    }
+
+    private async void OnHistorialClicked(object sender, EventArgs e)
+    {
+        if (!SesionData.EsProtectora)
+        {
+            return;
+        }
+
+        await Navigation.PushAsync(new HistorialAnimales());
     }
 
     private async void OnVerMasClicked(object sender, EventArgs e)

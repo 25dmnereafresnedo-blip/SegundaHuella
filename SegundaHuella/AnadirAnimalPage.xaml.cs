@@ -8,6 +8,8 @@ public partial class AnadirAnimalPage : ContentPage
 
     private FileResult? imagenSeleccionada;
 
+    private Entry OtraEspecieControl => this.FindByName<Entry>("OtraEspecieEntry");
+
     public AnadirAnimalPage()
     {
         InitializeComponent();
@@ -15,14 +17,21 @@ public partial class AnadirAnimalPage : ContentPage
 
     private async void OnGuardarClicked(object sender, EventArgs e)
     {
+        bool esOtraEspecie = EspeciePicker.SelectedItem?.ToString() == "Otro";
+
         if (string.IsNullOrWhiteSpace(NombreEntry.Text) ||
-            string.IsNullOrWhiteSpace(EspecieEntry.Text) ||
+            EspeciePicker.SelectedItem is null ||
+            (esOtraEspecie && string.IsNullOrWhiteSpace(OtraEspecieControl.Text)) ||
             string.IsNullOrWhiteSpace(EdadEntry.Text) ||
-            string.IsNullOrWhiteSpace(TamanoEntry.Text))
+            TamanoPicker.SelectedItem is null)
         {
             await DisplayAlertAsync("Datos incompletos", "Completa todos los campos para añadir la mascota.", "OK");
             return;
         }
+
+        string especie = esOtraEspecie
+            ? OtraEspecieControl.Text.Trim()
+            : EspeciePicker.SelectedItem.ToString()!;
 
         string imagen = "";
 
@@ -41,15 +50,25 @@ public partial class AnadirAnimalPage : ContentPage
         AnimalData.Animales.Add(new Animal
         {
             Nombre = NombreEntry.Text.Trim(),
-            Especie = EspecieEntry.Text.Trim(),
+            Especie = especie,
             Edad = EdadEntry.Text.Trim(),
-            Tamaño = TamanoEntry.Text.Trim(),
+            Tamaño = TamanoPicker.SelectedItem.ToString()!,
             Imagen = imagen ?? ""
         });
 
         await AnimalStorage.GuardarAsync();
 
         await Navigation.PopAsync();
+    }
+
+    private void OnEspecieChanged(object sender, EventArgs e)
+    {
+        OtraEspecieControl.IsVisible = EspeciePicker.SelectedItem?.ToString() == "Otro";
+
+        if (!OtraEspecieControl.IsVisible)
+        {
+            OtraEspecieControl.Text = string.Empty;
+        }
     }
 
     private async void OnSeleccionarImagenClicked(object sender, EventArgs e)

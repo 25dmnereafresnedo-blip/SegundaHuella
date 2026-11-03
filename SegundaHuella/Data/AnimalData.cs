@@ -9,5 +9,7 @@ namespace SegundaHuella.Data
     internal static class AnimalData
     {
         public static ObservableCollection<Animal> Animales { get; set; } = new ObservableCollection<Animal>();
+
+        public static ObservableCollection<Animal> AnimalesEliminados { get; set; } = new ObservableCollection<Animal>();
     }
 }
