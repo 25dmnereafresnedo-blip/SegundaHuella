@@ -13,7 +13,7 @@ public partial class AnimalDetailsPage : ContentPage
         BindingContext = animal;
     }
 
-    // Acción para el botón de volver atrás ("<")
+    // Acción para el botón de volver atrás
     private async void OnBackButtonClicked(object sender, EventArgs e)
     {
         await Navigation.PopAsync();
