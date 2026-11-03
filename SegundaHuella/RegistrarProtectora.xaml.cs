@@ -1,5 +1,6 @@
 using SegundaHuella.Data;
 using SegundaHuella.Models;
+using System;
 
 namespace SegundaHuella;
 
@@ -24,15 +25,15 @@ public partial class RegistroProtectora : ContentPage
 
         if (nombre == "" || direccion == "" || contrasenia == "")
         {
-            await DisplayAlertAsync("Error", "Rellena todos los campos", "Aceptar");
+            await DisplayAlert("Error", "Rellena todos los campos", "Aceptar");
             return;
         }
 
         foreach (Protectora p in ProtectoraData.Protectoras)
         {
-            if (p.Nombre == nombre)
+            if (p.Nombre.Trim().Equals(nombre, StringComparison.OrdinalIgnoreCase))
             {
-                await DisplayAlertAsync("Error", "Ya existe una protectora con ese nombre", "Aceptar");
+                await DisplayAlert("Error", "Ya existe una protectora con ese nombre", "Aceptar");
                 return;
             }
         }
@@ -47,12 +48,16 @@ public partial class RegistroProtectora : ContentPage
         ProtectoraData.Protectoras.Add(nuevaProtectora);
         await ProtectoraStorage.GuardarAsync();
 
-        await DisplayAlertAsync("Correcto", "Protectora registrada", "Aceptar");
+        await DisplayAlert("Correcto", "Protectora registrada", "Aceptar");
 
         NombreEntry.Text = "";
         DireccionEntry.Text = "";
         PassEntry.Text = "";
 
+        await Navigation.PopAsync();
+    }
+    private async void OnVolverClicked(object sender, EventArgs e)
+    {
         await Navigation.PopAsync();
     }
 }

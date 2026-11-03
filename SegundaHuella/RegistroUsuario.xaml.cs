@@ -46,4 +46,8 @@ public partial class RegistroUsuario : ContentPage
 
         await Navigation.PopAsync();
     }
+    private async void OnVolverClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }

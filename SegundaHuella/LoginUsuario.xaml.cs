@@ -72,4 +72,10 @@ public partial class LoginUsuario : ContentPage
     {
         await Navigation.PushAsync(new RegistroUsuario());
     }
+    private async void OnVolverClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
 }
+

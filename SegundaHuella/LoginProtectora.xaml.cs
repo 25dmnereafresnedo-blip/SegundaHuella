@@ -1,8 +1,7 @@
 using SegundaHuella.Data;
 using SegundaHuella.Models;
-
+using System;
 namespace SegundaHuella;
-
 public partial class LoginProtectora : ContentPage
 {
     public LoginProtectora()
@@ -20,7 +19,7 @@ public partial class LoginProtectora : ContentPage
     {
         foreach (Protectora p in ProtectoraData.Protectoras)
         {
-            if (p.Nombre == nombre)
+            if (p.Nombre.Trim().Equals(nombre, StringComparison.OrdinalIgnoreCase))
             {
                 return p;
             }
@@ -63,12 +62,16 @@ public partial class LoginProtectora : ContentPage
         }
         else
         {
-            await DisplayAlertAsync("Error", "Contraseña incorrecta", "Volver");
+            await DisplayAlert("Error", "Contraseña incorrecta", "Volver");
         }
     }
 
     private async void RegistrarClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new RegistroProtectora());
+    }
+    private async void OnVolverClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
     }
 }
