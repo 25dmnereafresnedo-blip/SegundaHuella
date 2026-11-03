@@ -5,28 +5,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView BackgroundColor="White">
-        <VerticalStackLayout Padding="30,35" Spacing="30">
+        <VerticalStackLayout Padding="30,35" Spacing="25">
             <Image
                 Aspect="AspectFit"
-                HeightRequest="200"
+                HeightRequest="300"
                 Source="logo.png" />
 
-            <Label
-                FontAttributes="Bold"
-                FontSize="50"
-                HorizontalOptions="Center"
-                Text="SegundaHuella"
-                VerticalOptions="Center" />
-
-            <Label
-                FontSize="23"
-                HorizontalOptions="Center"
-                Text="Adopte o acoge cerca de ti"
-                VerticalOptions="Center" />
-
             <Image
                 Aspect="AspectFit"
-                HeightRequest="165"
+                HeightRequest="120"
                 Source="animales.png" />
 
             <Button
