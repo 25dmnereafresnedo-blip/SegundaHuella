@@ -50,7 +50,8 @@
                     x:Name="NombreEntry"
                     BackgroundColor="White"
                     Placeholder="Nombre"
-                    TextChanged="NombreChanged" />
+                    TextChanged="NombreChanged"
+                    TextColor="#34495E"/>
                 </Border>
                 <Entry
                     x:Name="PassEntry"
