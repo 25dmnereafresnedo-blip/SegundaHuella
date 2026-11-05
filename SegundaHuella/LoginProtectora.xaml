@@ -44,12 +44,22 @@
                     Text="Acceso para protectoras"
                     TextColor="#34495E" />
 
-                <Entry
-                    x:Name="NombreEntry"
+                <Border
                     BackgroundColor="White"
-                    Placeholder="Nombre"
-                    TextChanged="NombreChanged" />
+                    Padding="12,0"
+                    Stroke="#008F87"
+                    StrokeThickness="1.5"
+                    StrokeShape="RoundRectangle 12">
 
+                    <Entry
+                        x:Name="NombreEntry"
+                        BackgroundColor="Transparent"
+                        HeightRequest="48"
+                        Placeholder="Nombre"
+                        PlaceholderColor="#95A5A6"
+                        TextColor="#34495E"
+                        TextChanged="NombreChanged" />
+                </Border>
                 <Entry
                     x:Name="PassEntry"
                     BackgroundColor="White"

@@ -40,12 +40,18 @@
                     Text="Acceso para usuarios"
                     TextColor="#34495E" />
 
+                <Border
+                    BackgroundColor="White"
+                    Padding="12,0"
+                    Stroke="#008F87"
+                    StrokeThickness="1.5"
+                    StrokeShape="RoundRectangle 12">
                 <Entry
                     x:Name="NombreEntry"
                     BackgroundColor="White"
                     Placeholder="Nombre"
                     TextChanged="NombreChanged" />
-
+                </Border>
                 <Entry
                     x:Name="PassEntry"
                     BackgroundColor="White"

@@ -38,32 +38,66 @@
                     Text="Registro para usuarios"
                     TextColor="#34495E" />
 
-                <Entry
+                <Border
+                    BackgroundColor="White"
+                    Padding="12,0"
+                    Stroke="#008F87"
+                    StrokeThickness="1.5"
+                    StrokeShape="RoundRectangle 12">
+                    <Entry
                     x:Name="NombreEntry"
                     BackgroundColor="White"
                     Placeholder="Nombre"
                     TextColor="#34495E" />
+                </Border>
 
-                <Entry
+                <Border
+                    BackgroundColor="White"
+                    Padding="12,0"
+                    Stroke="#008F87"
+                    StrokeThickness="1.5"
+                    StrokeShape="RoundRectangle 12">
+                    <Entry
                     x:Name="ApellidoEntry"
                     BackgroundColor="White"
                     Placeholder="Apellido"
                     TextColor="#34495E" />
+                </Border>
 
-                <Entry
+                <Border
+                    BackgroundColor="White"
+                    Padding="12,0"
+                    Stroke="#008F87"
+                    StrokeThickness="1.5"
+                    StrokeShape="RoundRectangle 12">
+                    <Entry
                     x:Name="EdadEntry"
                     BackgroundColor="White"
                     Keyboard="Numeric"
                     Placeholder="Edad"
                     TextColor="#34495E" />
+                </Border>
 
-                <Entry
+                <Border
+                    BackgroundColor="White"
+                    Padding="12,0"
+                    Stroke="#008F87"
+                    StrokeThickness="1.5"
+                    StrokeShape="RoundRectangle 12">
+                    <Entry
                     x:Name="DireccionEntry"
                     BackgroundColor="White"
                     Placeholder="Dirección"
                     TextColor="#34495E" />
-
-                <Entry
+                </Border>
+                
+                <Border
+                    BackgroundColor="White"
+                    Padding="12,0"
+                    Stroke="#008F87"
+                    StrokeThickness="1.5"
+                    StrokeShape="RoundRectangle 12">
+                    <Entry
                     x:Name="PassEntry"
                     BackgroundColor="White"
                     HeightRequest="50"
@@ -71,7 +105,8 @@
                     IsVisible="True"
                     Placeholder="Contraseña"
                     TextColor="#34495E" />
-
+                </Border>
+                
                 <Button
                     BackgroundColor="#FF873D"
                     Clicked="RegistrarseClicked"

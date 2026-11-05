@@ -15,12 +15,25 @@
                 TextColor="DarkCyan" />
 
             <Label Text="Completa los datos de la mascota para publicarla en adopción." TextColor="#555555" />
-
-            <Entry
+            <Border
+                BackgroundColor="White"
+                Padding="12,0"
+                Stroke="#008F87"
+                StrokeThickness="1.5"
+                StrokeShape="RoundRectangle 12">
+                <Entry
                 x:Name="NombreEntry"
                 Placeholder="Nombre"
                 TextColor="Black" />
-            <Picker
+            </Border>
+
+            <Border
+                BackgroundColor="White"
+                Padding="12,0"
+                Stroke="#008F87"
+                StrokeThickness="1.5"
+                StrokeShape="RoundRectangle 12">
+                <Picker
                 x:Name="EspeciePicker"
                 Title="Selecciona la especie"
                 SelectedIndexChanged="OnEspecieChanged"
@@ -34,16 +47,32 @@
                     <x:String>Otro</x:String>
                 </Picker.Items>
             </Picker>
+            </Border>
             <Entry
                 x:Name="OtraEspecieEntry"
                 IsVisible="False"
                 Placeholder="Escribe la especie"
                 TextColor="Black" />
-            <Entry
+
+            <Border
+                BackgroundColor="White"
+                Padding="12,0"
+                Stroke="#008F87"
+                StrokeThickness="1.5"
+                StrokeShape="RoundRectangle 12">
+                <Entry
                 x:Name="EdadEntry"
                 Placeholder="Edad"
                 TextColor="Black" />
-            <Picker
+                </Border>
+
+            <Border
+                BackgroundColor="White"
+                Padding="12,0"
+                Stroke="#008F87"
+                StrokeThickness="1.5"
+                StrokeShape="RoundRectangle 12">
+                <Picker
                 x:Name="TamanoPicker"
                 Title="Selecciona el tamaño"
                 TextColor="Black"
@@ -54,7 +83,7 @@
                     <x:String>Grande</x:String>
                 </Picker.Items>
             </Picker>
-
+            </Border>
             <Button
                 BackgroundColor="DarkCyan"
                 Clicked="OnSeleccionarImagenClicked"
